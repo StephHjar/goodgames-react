@@ -87,3 +87,4 @@ This section should describe the process you went through to deploy the project 
 
 - I used [Canva](https://www.canva.com/) to create the GoodGames Logo.
 - I used [CloudConvert] to convert images to WEBP format.
+- I used [Favicon Generator](https://favicon.io/) to create my favicon.
