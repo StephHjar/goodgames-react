@@ -4,3 +4,11 @@
   text-transform: uppercase;
   font-family: "Tomorrow", sans-serif;
 }
+
+.NavLink {
+  padding: 5px;
+}
+
+.Active i {
+  color: #8f4cfc;
+}
