@@ -88,3 +88,4 @@ This section should describe the process you went through to deploy the project 
 - I used [Canva](https://www.canva.com/) to create the GoodGames Logo.
 - I used [CloudConvert] to convert images to WEBP format.
 - I used [Favicon Generator](https://favicon.io/) to create my favicon.
+- The sign up form photo is by by [Javier Martinez](https://unsplash.com/@cjdante?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/photos/hUD0PUczwJQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
