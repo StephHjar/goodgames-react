@@ -10,6 +10,27 @@
   padding-top: 135px;
 }
 
+.Content {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 2px;
+  border: 1px solid #dadadf;
+}
+
+.FillerImage {
+  object-fit: cover;
+  object-position: right;
+  height: 100%;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.Image {
+  max-height: 40vh;
+  max-width: 100%;
+  object-fit: contain;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -29,19 +50,6 @@ a:hover i {
   transition: color ease-in-out 0.3s;
 }
 
-i {
-  color: #cfced3;
-  font-size: 1.6rem;
-  padding: 7px;
-  vertical-align: middle;
-}
-
-i:hover {
-  cursor: pointer;
-  transition: color ease-in-out 0.3s;
-  color: #8f4cfc;
-}
-
 input[type="file"] {
   display: none;
 }
@@ -56,7 +64,7 @@ i {
 i:hover {
   cursor: pointer;
   transition: color ease-in-out 0.3s;
-  color: #2142b2;
+  color: #8f4cfc;
 }
 
 figure {

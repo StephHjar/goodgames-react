@@ -63,8 +63,7 @@ const SignUpForm = () => {
         className={`my-auto d-none d-md-block p-2 ${styles.SignUpCol}`}
       >
         <Image
-          className={`${appStyles.FillerImage} mx-auto my-auto`}
-          width="100%"
+          className={`${appStyles.FillerImage}`}
           src={signupphoto}
           alt="Photo of a video game controller"
         />
