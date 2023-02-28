@@ -5,15 +5,62 @@ import Nav from "react-bootstrap/Nav";
 import logo from "../assets/GoodGames-logo.webp";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
-import { useCurrentUser } from "../contexts/CurrentUserContext";
+import {
+  useCurrentUser,
+  useSetCurrentUser,
+} from "../contexts/CurrentUserContext";
+import Avatar from "./Avatar";
+import axios from "axios";
 
 const NavBar = () => {
   const currentUser = useCurrentUser();
+  const setCurrentUser = useSetCurrentUser();
 
-  const loggedInIcons = <>{currentUser?.username}</>;
+  const handleSignOut = async () => {
+    try {
+      await axios.post("dj-rest-auth/logout/");
+      setCurrentUser(null);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const loggedInIcons = (
+    <>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/feed"
+      >
+        <i className="fas fa-stream"></i>Feed
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/posts"
+      >
+        <i className="fas fa-heart"></i>My Games
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/games"
+      >
+        <i className="fas fa-gamepad"></i>All Games
+      </NavLink>
+      <NavLink className={styles.NavLink} to="/" onClick={handleSignOut}>
+        <i className="fas fa-sign-out-alt"></i>Sign out
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        to={`/profiles/${currentUser?.profile_id}`}
+      >
+        <Avatar src={currentUser?.profile_image} text="Profile" height={40} />
+      </NavLink>
+    </>
+  );
   const loggedOutIcons = (
     <>
-      {" "}
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
