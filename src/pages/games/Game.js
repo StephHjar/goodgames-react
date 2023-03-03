@@ -14,7 +14,7 @@ const Game = (props) => {
     title,
     description,
     image,
-    setPost,
+    setGames,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -22,10 +22,25 @@ const Game = (props) => {
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { game: id });
-      setPost((prevGames) => ({
+      setGames((prevGames) => ({
         results: prevGames.results.map((game) => {
           return game.id === id
             ? { ...game, likes_count: game.likes_count + 1, like_id: data.id }
+            : game;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUnlike = async () => {
+    try {
+      await axiosRes.delete(`/likes/${like_id}`);
+      setGames((prevGames) => ({
+        results: prevGames.results.map((game) => {
+          return game.id === id
+            ? { ...game, likes_count: game.likes_count - 1, like_id: null }
             : game;
         }),
       }));
@@ -44,7 +59,7 @@ const Game = (props) => {
         {description && <Card.Text>{description}</Card.Text>}
         <div className={styles.PostBar}>
           {like_id ? (
-            <span onClick={() => {}}>
+            <span onClick={handleUnlike}>
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
           ) : currentUser ? (
