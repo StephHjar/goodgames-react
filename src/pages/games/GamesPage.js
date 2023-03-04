@@ -13,6 +13,8 @@ import Game from "./Game";
 
 import NoResults from "../../assets/no-results.webp";
 import Asset from "../../components/Asset";
+import InfiniteScroll from "react-infinite-scroll-component";
+import { fetchMoreData } from "../../utils/utils";
 
 function GamesPage({ message, filter = "" }) {
   const [games, setGames] = useState({ results: [] });
@@ -61,9 +63,15 @@ function GamesPage({ message, filter = "" }) {
         {hasLoaded ? (
           <>
             {games.results.length ? (
-              games.results.map((game) => (
-                <Game key={game.id} {...game} setGames={setGames} />
-              ))
+              <InfiniteScroll
+                children={games.results.map((game) => (
+                  <Game key={game.id} {...game} setGames={setGames} />
+                ))}
+                dataLength={games.results.length}
+                loader={<Asset spinner />}
+                hasMore={!!games.next}
+                next={() => fetchMoreData(games, setGames)}
+              />
             ) : (
               <Container className={appStyles.Content}>
                 <Asset src={NoResults} message={message} height={60} />
