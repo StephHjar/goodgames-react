@@ -17,7 +17,7 @@ function PostCreateForm() {
   const [errors, setErrors] = useState({});
 
   const [postData, setPostData] = useState({
-    game_title: game.title,
+    game_title: "",
     currently_playing: "",
     completed: "",
     content: "",
@@ -29,16 +29,16 @@ function PostCreateForm() {
       <Form.Group>
         <Form.Label>Game</Form.Label>
         <Form.Control as="select">
-          <option>{game_title}</option>
+          <option>Test Game</option>
         </Form.Control>
       </Form.Group>
       <Form.Group>
         <Form.Label>Currently Playing?</Form.Label>
-        <Form.Control type="radio" name="currently-playing" />
+        <Form.Control type="checkbox" name="currently-playing" />
       </Form.Group>
       <Form.Group>
         <Form.Label>Completed?</Form.Label>
-        <Form.Control type="radio" name="complete" />
+        <Form.Control type="checkbox" name="complete" />
       </Form.Group>
       <Form.Group>
         <Form.Label>Notes</Form.Label>
