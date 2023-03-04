@@ -19,10 +19,12 @@ function GamesPage({ message, filter = "" }) {
   const [hasLoaded, setHasLoaded] = useState(false);
   const { pathname } = useLocation();
 
+  const [query, setQuery] = useState("");
+
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        const { data } = await axiosReq.get(`/games/?${filter}`);
+        const { data } = await axiosReq.get(`/games/?${filter}search=${query}`);
         setGames(data);
         setHasLoaded(true);
       } catch (err) {
@@ -30,13 +32,32 @@ function GamesPage({ message, filter = "" }) {
       }
     };
     setHasLoaded(false);
-    fetchGames();
-  }, [filter, pathname]);
+    const timer = setTimeout(() => {
+      fetchGames();
+    }, 1000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [filter, query, pathname]);
 
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular games mobile</p>
+        <i className={`fas fa-search ${styles.SearchIcon}`} />
+        <Form
+          className={styles.SearchBar}
+          onSubmit={(event) => event.preventDefault()}
+        >
+          <Form.Control
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            type="text"
+            className="mr-sm-2"
+            placeholder="Search games"
+          />
+        </Form>
+
         {hasLoaded ? (
           <>
             {games.results.length ? (
@@ -45,7 +66,7 @@ function GamesPage({ message, filter = "" }) {
               ))
             ) : (
               <Container className={appStyles.Content}>
-                <Asset src={NoResults} message={message} />
+                <Asset src={NoResults} message={message} height={60} />
               </Container>
             )}
           </>
