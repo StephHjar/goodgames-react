@@ -1,9 +1,10 @@
 import React from "react";
-import { Card, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Link, useHistory } from "react-router-dom";
 import styles from "../../styles/Game.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from "../../components/MoreDropdown";
 
 const Game = (props) => {
   const {
@@ -18,6 +19,21 @@ const Game = (props) => {
   } = props;
 
   const currentUser = useCurrentUser();
+  const is_admin = currentUser?.username === "admin";
+  const history = useHistory();
+
+  const handleEdit = () => {
+    history.push(`/games/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/games/${id}`);
+      history.goBack();
+    } catch (err) {
+      console.log(err);
+    }
+  };
 
   const handleLike = async () => {
     try {
@@ -51,6 +67,18 @@ const Game = (props) => {
 
   return (
     <Card className={styles.Game}>
+      <Card.Body>
+        <Media>
+          <div className="ml-auto">
+            {is_admin && (
+              <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+              />
+            )}
+          </div>
+        </Media>
+      </Card.Body>
       <Link to={`/games/${id}`}>
         <Card.Img src={image} alt={title} className={styles.Image} />
       </Link>
