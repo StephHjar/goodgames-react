@@ -10,6 +10,7 @@ import GamePage from "./pages/games/GamePage";
 import PostCreateForm from "./pages/posts/PostCreateForm";
 import GamesPage from "./pages/games/GamesPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import GameEditForm from "./pages/games/GameEditForm";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -25,6 +26,7 @@ function App() {
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/games/create" render={() => <GameCreateForm />} />
           <Route exact path="/games/:id" render={() => <GamePage />} />
+          <Route exact path="/games/:id/edit" render={() => <GameEditForm />} />
           <Route
             exact
             path="/games"
