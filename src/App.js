@@ -8,8 +8,13 @@ import SignInForm from "./pages/auth/SignInForm";
 import GameCreateForm from "./pages/games/GameCreateForm";
 import GamePage from "./pages/games/GamePage";
 import PostCreateForm from "./pages/posts/PostCreateForm";
+import GamesPage from "./pages/games/GamesPage";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
 
 function App() {
+  const currentUser = useCurrentUser();
+  const profile_id = currentUser?.profile_id || "";
+
   return (
     <div className={styles.App}>
       <NavBar />
@@ -20,6 +25,30 @@ function App() {
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/games/create" render={() => <GameCreateForm />} />
           <Route exact path="/games/:id" render={() => <GamePage />} />
+          <Route
+            exact
+            path="/games"
+            render={() => (
+              <GamesPage message="No results found. Adjust the search keywords, or add a game!" />
+            )}
+          />
+          <Route
+            exact
+            path="/feed"
+            render={() => (
+              <GamesPage message="No results found. Try adding a post yourself!" />
+            )}
+          />
+          <Route
+            exact
+            path="/posts"
+            render={() => (
+              <GamesPage
+                message="No results found. Try adding a post!"
+                filter={`owner__profile=${profile_id}&`}
+              />
+            )}
+          />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
