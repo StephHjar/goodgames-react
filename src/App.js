@@ -29,7 +29,7 @@ function App() {
             exact
             path="/games"
             render={() => (
-              <GamesPage message="No results found. Adjust the search keywords, or add a game!" />
+              <GamesPage message="No results found. Adjust the search keywords, or add this game to the site!" />
             )}
           />
           <Route
