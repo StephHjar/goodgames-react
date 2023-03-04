@@ -12,6 +12,7 @@ h5 {
 }
 
 .Image {
+  margin-top: 16px;
   max-height: 400px;
   width: auto;
 }
