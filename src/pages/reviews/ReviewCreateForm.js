@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
 import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
+import Col from "react-bootstrap/Col";
+import Row from "react-bootstrap/Row";
 
 import styles from "../../styles/ReviewCreateEditForm.module.css";
-import Avatar from "../../components/Avatar";
+import btnStyles from "../../styles/Button.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function ReviewCreateForm(props) {
-  const { game, setGame, setReviews, profileImage, profile_id } = props;
+  const { game, setGame, setReviews } = props;
   const [content, setContent] = useState("");
   const [rating, setRating] = useState(0);
 
@@ -49,23 +49,12 @@ function ReviewCreateForm(props) {
 
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
-      <Form.Group>
-        <InputGroup>
-          <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profileImage} />
-          </Link>
-          <Form.Control
-            className={styles.Form}
-            placeholder="my review..."
-            as="textarea"
-            value={content}
-            onChange={handleChange}
-            rows={2}
-          />
+      <Row className="mb-3">
+        <Form.Group as={Col}>
           <Form.Label>Rating (1-5 stars)</Form.Label>
           <Form.Control
             as="select"
-            // className={styles.Form}
+            className={styles.Form}
             aria-label="Rating from 1 to 5"
             value={rating}
             onChange={handleChangeRating}
@@ -76,10 +65,21 @@ function ReviewCreateForm(props) {
             <option value="4">4 ****</option>
             <option value="5">5 *****</option>
           </Form.Control>
-        </InputGroup>
-      </Form.Group>
+        </Form.Group>
+        <Form.Group as={Col} className="mt-2">
+          <Form.Control
+            className={styles.Form}
+            placeholder="My review..."
+            as="textarea"
+            value={content}
+            onChange={handleChange}
+            rows={2}
+          />
+        </Form.Group>
+      </Row>
+
       <button
-        className={`${styles.Button} btn d-block ml-auto`}
+        className={`${btnStyles.Button} ${btnStyles.Blue} btn d-block m-auto`}
         disabled={!content.trim()}
         type="submit"
       >
