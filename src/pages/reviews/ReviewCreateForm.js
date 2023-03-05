@@ -7,9 +7,12 @@ import Row from "react-bootstrap/Row";
 import styles from "../../styles/ReviewCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
+import { Link } from "react-router-dom";
+import Avatar from "../../components/Avatar";
+import { InputGroup } from "react-bootstrap";
 
 function ReviewCreateForm(props) {
-  const { game, setGame, setReviews } = props;
+  const { game, setGame, setReviews, profileImage, profile_id } = props;
   const [content, setContent] = useState("");
   const [rating, setRating] = useState(0);
 
@@ -49,8 +52,11 @@ function ReviewCreateForm(props) {
 
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
-      <Row className="mb-3">
-        <Form.Group as={Col}>
+      <Form.Group>
+        <InputGroup>
+          <Link to={`/profiles/${profile_id}`}>
+            <Avatar src={profileImage} />
+          </Link>
           <Form.Label>Rating (1-5 stars)</Form.Label>
           <Form.Control
             as="select"
@@ -65,8 +71,8 @@ function ReviewCreateForm(props) {
             <option value="4">4 ****</option>
             <option value="5">5 *****</option>
           </Form.Control>
-        </Form.Group>
-        <Form.Group as={Col} className="mt-2">
+        </InputGroup>
+
           <Form.Control
             className={styles.Form}
             placeholder="My review..."
@@ -75,8 +81,7 @@ function ReviewCreateForm(props) {
             onChange={handleChange}
             rows={2}
           />
-        </Form.Group>
-      </Row>
+      </Form.Group>
 
       <button
         className={`${btnStyles.Button} ${btnStyles.Blue} btn d-block m-auto`}

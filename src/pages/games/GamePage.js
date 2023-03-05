@@ -11,6 +11,7 @@ import Game from "./Game";
 
 import ReviewCreateForm from "../reviews/ReviewCreateForm";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import Review from "../reviews/Review";
 
 function GamePage() {
   const { id } = useParams();
@@ -23,10 +24,12 @@ function GamePage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: game }] = await Promise.all([
+        const [{ data: game }, { data: reviews }] = await Promise.all([
           axiosReq.get(`/games/${id}`),
+          axiosReq.get(`/reviews/?game=${id}`),
         ]);
         setGame({ results: [game] });
+        setReviews(reviews);
         console.log(game);
       } catch (err) {
         console.log(err);
@@ -52,6 +55,15 @@ function GamePage() {
           ) : reviews.results.length ? (
             "Reviews"
           ) : null}
+          {reviews.results.length ? (
+            reviews.results.map((review) => (
+              <Review key={review.id} {...review} />
+            ))
+          ) : currentUser ? (
+            <span>No reviews yet, be the first to leave a review!</span>
+          ) : (
+            <span>No reviews yet!</span>
+          )}
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
