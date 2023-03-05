@@ -3,6 +3,18 @@
   border-bottom: 2px #0ed1e0 solid;
 }
 
+.FormRating {
+  max-width: 25%;
+  margin: auto;
+}
+
+.ReviewHeading {
+  text-transform: uppercase;
+  color: #8f4cfc;
+  font-weight: bold;
+  text-align: center;
+}
+
 .Button {
   border: none;
   background-color: #242a3d;

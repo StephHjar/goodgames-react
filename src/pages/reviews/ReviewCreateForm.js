@@ -51,46 +51,48 @@ function ReviewCreateForm(props) {
   };
 
   return (
-    <Form className="mt-2" onSubmit={handleSubmit}>
-      <Form.Group>
-        <InputGroup>
-          <Link to={`/profiles/${profile_id}`}>
-            <Avatar src={profileImage} />
-          </Link>
+    <>
+      <p class={styles.ReviewHeading}>Leave a review!</p>
+      <Form className="mt-2 text-center" onSubmit={handleSubmit}>
+        <Form.Group>
           <Form.Label>Rating (1-5 stars)</Form.Label>
-          <Form.Control
-            as="select"
-            className={styles.Form}
-            aria-label="Rating from 1 to 5"
-            value={rating}
-            onChange={handleChangeRating}
-          >
-            <option value="1">1 *</option>
-            <option value="2">2 **</option>
-            <option value="3">3 ***</option>
-            <option value="4">4 ****</option>
-            <option value="5">5 *****</option>
-          </Form.Control>
-        </InputGroup>
+          <InputGroup>
+            <Form.Control
+              as="select"
+              className={`${styles.FormRating} ${styles.Form}`}
+              aria-label="Rating from 1 to 5"
+              value={rating}
+              onChange={handleChangeRating}
+            >
+              <option value="1">1 *</option>
+              <option value="2">2 **</option>
+              <option value="3">3 ***</option>
+              <option value="4">4 ****</option>
+              <option value="5">5 *****</option>
+            </Form.Control>
 
-          <Form.Control
-            className={styles.Form}
-            placeholder="My review..."
-            as="textarea"
-            value={content}
-            onChange={handleChange}
-            rows={2}
-          />
-      </Form.Group>
+            <Form.Control
+              className={`${styles.Form} w-100`}
+              placeholder="My review..."
+              as="textarea"
+              value={content}
+              onChange={handleChange}
+            />
+            <Link to={`/profiles/${profile_id}`} className="d-none">
+              <Avatar src={profileImage} />
+            </Link>
+          </InputGroup>
+        </Form.Group>
 
-      <button
-        className={`${btnStyles.Button} ${btnStyles.Blue} btn d-block m-auto`}
-        disabled={!content.trim()}
-        type="submit"
-      >
-        post
-      </button>
-    </Form>
+        <button
+          className={`${btnStyles.Button} ${btnStyles.Blue} btn d-block m-auto`}
+          disabled={!content.trim()}
+          type="submit"
+        >
+          post
+        </button>
+      </Form>
+    </>
   );
 }
 
