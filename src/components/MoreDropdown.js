@@ -6,7 +6,7 @@ import styles from "../styles/MoreDropdown.module.css";
 // Dropdown needs access to the DOM node in order to position the Menu
 const ThreeDots = React.forwardRef(({ onClick }, ref) => (
   <i
-    className="fas fa-ellipsis v"
+    className="fas fa-ellipsis-v"
     ref={ref}
     onClick={(e) => {
       e.preventDefault();
@@ -25,14 +25,14 @@ export const MoreDropdown = ({ handleEdit, handleDelete }) => {
         popperConfig={{ strategy: "fixed" }}
       >
         <Dropdown.Item
-          className={styles.DropDownItem}
+          className={styles.DropdownItem}
           onClick={handleEdit}
           aria-label="edit"
         >
           <i className="fas fa-edit" />
         </Dropdown.Item>
         <Dropdown.Item
-          className={styles.DropDownItem}
+          className={styles.DropdownItem}
           onClick={handleDelete}
           aria-label="delete"
         >

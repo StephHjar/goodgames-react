@@ -57,7 +57,12 @@ function GamePage() {
           ) : null}
           {reviews.results.length ? (
             reviews.results.map((review) => (
-              <Review key={review.id} {...review} />
+              <Review
+                key={review.id}
+                {...review}
+                setGame={setGame}
+                setReviews={setReviews}
+              />
             ))
           ) : currentUser ? (
             <span>No reviews yet, be the first to leave a review!</span>
