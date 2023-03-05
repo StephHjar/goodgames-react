@@ -9,29 +9,26 @@ import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function ReviewCreateForm(props) {
-  const { setGame, setReviews, profileImage, profile_id } = props;
-  const [reviewData, setReviewData] = useState({
-    content: "",
-    rating: 0,
-  });
-  const { content, rating } = reviewData;
+  const { game, setGame, setReviews, profileImage, profile_id } = props;
+  const [content, setContent] = useState("");
+  const [rating, setRating] = useState(0);
 
   const handleChange = (event) => {
-    setReviewData({
-      ...reviewData,
-      [event.target.name]: event.target.value,
-    });
+    setContent(event.target.value);
+  };
+
+  const handleChangeRating = (event) => {
+    setRating(event.target.value);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const formData = new FormData();
-
-    formData.append("content", content);
-    formData.append("rating", parseInt(rating));
-
     try {
-      const { data } = await axiosRes.post("/reviews/", formData);
+      const { data } = await axiosRes.post("/reviews/", {
+        content,
+        game,
+        rating: parseInt(rating),
+      });
       setReviews((prevReviews) => ({
         ...prevReviews,
         results: [data, ...prevReviews.results],
@@ -44,6 +41,7 @@ function ReviewCreateForm(props) {
           },
         ],
       }));
+      setContent("");
     } catch (err) {
       console.log(err);
     }
@@ -56,17 +54,6 @@ function ReviewCreateForm(props) {
           <Link to={`/profiles/${profile_id}`}>
             <Avatar src={profileImage} />
           </Link>
-          <Form.Select
-            aria-label="Rating from 1 to 5"
-            value={rating}
-            onChange={handleChange}
-          >
-            <option value={1}>1</option>
-            <option value={2}>2</option>
-            <option value={3}>3</option>
-            <option value={4}>4</option>
-            <option value={5}>5</option>
-          </Form.Select>
           <Form.Control
             className={styles.Form}
             placeholder="my review..."
@@ -75,6 +62,20 @@ function ReviewCreateForm(props) {
             onChange={handleChange}
             rows={2}
           />
+          <Form.Label>Rating (1-5 stars)</Form.Label>
+          <Form.Control
+            as="select"
+            // className={styles.Form}
+            aria-label="Rating from 1 to 5"
+            value={rating}
+            onChange={handleChangeRating}
+          >
+            <option value="1">1 *</option>
+            <option value="2">2 **</option>
+            <option value="3">3 ***</option>
+            <option value="4">4 ****</option>
+            <option value="5">5 *****</option>
+          </Form.Control>
         </InputGroup>
       </Form.Group>
       <button

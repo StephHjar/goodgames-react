@@ -39,7 +39,7 @@ function GamePage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular games for mobile</p>
-        <Game {...game.results[0]} setGames={setGame} />
+        <Game {...game.results[0]} setGame={setGame} />
         <Container className={appStyles.Content}>
           {currentUser ? (
             <ReviewCreateForm
