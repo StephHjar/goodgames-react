@@ -44,8 +44,7 @@ function GamesPage({ message, filter = "" }) {
 
   return (
     <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Popular games mobile</p>
+      <Col className="py-2 p-0 p-lg-2">
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}
@@ -83,9 +82,6 @@ function GamesPage({ message, filter = "" }) {
             <Asset spinner />
           </Container>
         )}
-      </Col>
-      <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <p>Popular games for desktop</p>
       </Col>
     </Row>
   );

@@ -7,6 +7,11 @@
   margin: auto;
 }
 
+.FormContent {
+  max-width: 75%;
+  margin: auto;
+}
+
 .ReviewHeading {
   text-transform: uppercase;
   color: #8f4cfc;

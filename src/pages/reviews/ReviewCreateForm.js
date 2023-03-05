@@ -54,32 +54,26 @@ function ReviewCreateForm(props) {
       <Form className="mt-2 text-center" onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>Rating (1-5 stars)</Form.Label>
-          <InputGroup>
-            <Form.Control
-              as="select"
-              className={`${styles.FormRating} ${styles.Form} mb-2`}
-              aria-label="Rating from 1 to 5"
-              value={rating}
-              onChange={handleChangeRating}
-            >
-              <option value="1">1 *</option>
-              <option value="2">2 **</option>
-              <option value="3">3 ***</option>
-              <option value="4">4 ****</option>
-              <option value="5">5 *****</option>
-            </Form.Control>
-
-            <Form.Control
-              className={`${styles.Form} w-100`}
-              placeholder="My review..."
-              as="textarea"
-              value={content}
-              onChange={handleChange}
-            />
-            <Link to={`/profiles/${profile_id}`} className="d-none">
-              <Avatar src={profileImage} />
-            </Link>
-          </InputGroup>
+          <Form.Control
+            as="select"
+            className={`${styles.FormRating} ${styles.Form} mb-2`}
+            aria-label="Rating from 1 to 5"
+            value={rating}
+            onChange={handleChangeRating}
+          >
+            <option value="1">1 *</option>
+            <option value="2">2 **</option>
+            <option value="3">3 ***</option>
+            <option value="4">4 ****</option>
+            <option value="5">5 *****</option>
+          </Form.Control>
+          <Form.Control
+            className={`${styles.Form} ${styles.FormContent}`}
+            placeholder="My review..."
+            as="textarea"
+            value={content}
+            onChange={handleChange}
+          />
         </Form.Group>
 
         <button
