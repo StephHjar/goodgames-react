@@ -57,7 +57,7 @@ function ReviewCreateForm(props) {
           <InputGroup>
             <Form.Control
               as="select"
-              className={`${styles.FormRating} ${styles.Form}`}
+              className={`${styles.FormRating} ${styles.Form} mb-2`}
               aria-label="Rating from 1 to 5"
               value={rating}
               onChange={handleChangeRating}
