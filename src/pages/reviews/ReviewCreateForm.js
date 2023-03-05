@@ -52,7 +52,7 @@ function ReviewCreateForm(props) {
 
   return (
     <>
-      <p class={styles.ReviewHeading}>Leave a review!</p>
+      <p className={styles.ReviewHeading}>Leave a review!</p>
       <Form className="mt-2 text-center" onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>Rating (1-5 stars)</Form.Label>

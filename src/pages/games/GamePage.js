@@ -10,8 +10,8 @@ import { axiosReq } from "../../api/axiosDefaults";
 import Game from "./Game";
 
 import ReviewCreateForm from "../reviews/ReviewCreateForm";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Review from "../reviews/Review";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function GamePage() {
   const { id } = useParams();
