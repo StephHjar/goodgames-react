@@ -5,12 +5,9 @@ import Form from "react-bootstrap/Form";
 import styles from "../../styles/ReviewCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
-import { Link } from "react-router-dom";
-import Avatar from "../../components/Avatar";
-import { InputGroup } from "react-bootstrap";
 
 function ReviewCreateForm(props) {
-  const { game, setGame, setReviews, profileImage, profile_id } = props;
+  const { game, setGame, setReviews } = props;
   const [content, setContent] = useState("");
   const [rating, setRating] = useState(0);
 
