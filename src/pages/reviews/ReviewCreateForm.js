@@ -9,7 +9,7 @@ import { axiosRes } from "../../api/axiosDefaults";
 function ReviewCreateForm(props) {
   const { game, setGame, setReviews } = props;
   const [content, setContent] = useState("");
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(1);
 
   const handleChange = (event) => {
     setContent(event.target.value);

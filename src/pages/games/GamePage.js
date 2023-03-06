@@ -8,10 +8,13 @@ import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Game from "./Game";
+import Asset from "../../components/Asset";
+import { fetchMoreData } from "../../utils/utils";
 
 import ReviewCreateForm from "../reviews/ReviewCreateForm";
 import Review from "../reviews/Review";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 function GamePage() {
   const { id } = useParams();
@@ -55,14 +58,20 @@ function GamePage() {
             "Reviews"
           ) : null}
           {reviews.results.length ? (
-            reviews.results.map((review) => (
-              <Review
-                key={review.id}
-                {...review}
-                setGame={setGame}
-                setReviews={setReviews}
-              />
-            ))
+            <InfiniteScroll
+              children={reviews.results.map((review) => (
+                <Review
+                  key={review.id}
+                  {...review}
+                  setGame={setGame}
+                  setReviews={setReviews}
+                />
+              ))}
+              dataLength={reviews.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!reviews.next}
+              next={() => fetchMoreData(reviews, setReviews)}
+            />
           ) : currentUser ? (
             <span>No reviews yet, be the first to leave a review!</span>
           ) : (
