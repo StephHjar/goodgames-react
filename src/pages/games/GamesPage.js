@@ -15,6 +15,7 @@ import NoResults from "../../assets/no-results.webp";
 import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
+import PopularGames from "./PopularGames";
 
 function GamesPage({ message, filter = "" }) {
   const [games, setGames] = useState({ results: [] });
@@ -44,7 +45,8 @@ function GamesPage({ message, filter = "" }) {
 
   return (
     <Row className="h-100">
-      <Col className="py-2 p-0 p-lg-2">
+      <Col className="py-2 p-0 p-lg-2" lg={8}>
+        <PopularGames mobile />
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
           className={styles.SearchBar}
@@ -82,6 +84,9 @@ function GamesPage({ message, filter = "" }) {
             <Asset spinner />
           </Container>
         )}
+      </Col>
+      <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+        <PopularGames />
       </Col>
     </Row>
   );
