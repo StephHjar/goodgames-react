@@ -22,14 +22,19 @@ function PostCreateForm() {
     completed: "",
     content: "",
   });
-  const { game_title, currently_playing, completed, content } = postData;
+  const { game, game_title, currently_playing, completed, content } = postData;
 
   const textFields = (
     <div className="text-center">
       <Form.Group>
         <Form.Label>Game</Form.Label>
         <Form.Control as="select">
-          <option>Test Game</option>
+          <option disabled="true" selected>
+            -- Select A Game --
+          </option>
+          {game.map((game) => (
+            <option value={game_title}>{game.title}</option>
+          ))}
         </Form.Control>
       </Form.Group>
       <Form.Group>

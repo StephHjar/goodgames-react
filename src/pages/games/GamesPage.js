@@ -16,6 +16,7 @@ import Asset from "../../components/Asset";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularGames from "./PopularGames";
+import { NavLink } from "react-router-dom";
 
 function GamesPage({ message, filter = "" }) {
   const [games, setGames] = useState({ results: [] });
@@ -46,6 +47,15 @@ function GamesPage({ message, filter = "" }) {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
+        <NavLink
+          className={styles.NavLink}
+          activeClassName={styles.Active}
+          to="/games/create"
+        >
+          <i className="far fa-plus-square"></i>Add A Game
+        </NavLink>
+      </Col>
+      <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularGames mobile />
         <i className={`fas fa-search ${styles.SearchIcon}`} />
         <Form
@@ -60,7 +70,6 @@ function GamesPage({ message, filter = "" }) {
             placeholder="Search games"
           />
         </Form>
-
         {hasLoaded ? (
           <>
             {games.results.length ? (
