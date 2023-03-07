@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Media } from "react-bootstrap";
+import { Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { MoreDropdown } from "../../components/MoreDropdown";
@@ -20,6 +20,8 @@ const Review = (props) => {
     id,
     setGame,
     setReviews,
+    likes_count,
+    like_id,
   } = props;
 
   const [showEditForm, setShowEditForm] = useState(false);
@@ -43,6 +45,40 @@ const Review = (props) => {
         results: prevReviews.results.filter((review) => review.id !== id),
       }));
     } catch (err) {}
+  };
+
+  const handleLike = async () => {
+    try {
+      const { data } = await axiosRes.post("/likes/", { review: id });
+      setReviews((prevReviews) => ({
+        results: prevReviews.results.map((review) => {
+          return review.id === id
+            ? {
+                ...review,
+                likes_count: review.likes_count + 1,
+                like_id: data.id,
+              }
+            : review;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUnlike = async () => {
+    try {
+      await axiosRes.delete(`/likes/${like_id}`);
+      setReviews((prevReviews) => ({
+        results: prevReviews.results.map((review) => {
+          return review.id === id
+            ? { ...review, likes_count: review.likes_count - 1, like_id: null }
+            : review;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -74,6 +110,32 @@ const Review = (props) => {
               <p>{content}</p>
             </>
           )}
+          <div>
+            {is_owner ? (
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>You can't like your own review!</Tooltip>}
+              >
+                <i className="far fa-heart" />
+              </OverlayTrigger>
+            ) : like_id ? (
+              <span onClick={handleUnlike}>
+                <i className={`fas fa-heart ${styles.Heart}`} />
+              </span>
+            ) : currentUser ? (
+              <span onClick={handleLike}>
+                <i className={`far fa-heart ${styles.HeartOutline}`} />
+              </span>
+            ) : (
+              <OverlayTrigger
+                placement="top"
+                overlay={<Tooltip>Log in to like games!</Tooltip>}
+              >
+                <i className="far fa-heart" />
+              </OverlayTrigger>
+            )}
+            {likes_count}
+          </div>
         </Media.Body>
         {is_owner && !showEditForm && (
           <MoreDropdown
