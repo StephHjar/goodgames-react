@@ -83,6 +83,12 @@ This section should describe the process you went through to deploy the project 
 
 ### Content
 
+- In order to get all game titles from my DRF API database to populate in the "Add Post" form, I used the following resources:
+  - [This YouTube video](https://www.youtube.com/watch?v=x48RYuXKs7c) from Haritha Computers and Technology (thank you to my mentor, Martina, for sharing this with me!)
+  - [This page](https://dev.to/haalto/recursively-fetch-data-from-paginated-api-34ig) on Dev.to about pulling data from a paginated API.
+  - [This page](https://dev.to/hariseldon27/localecompare-and-sorting-in-javascript-1god) again on Dev.to to learn how to sort the game titles alphabetically.
+  - I also borrowed code / syntax from GameDataContext provider.
+
 ### Media
 
 - I used [Canva](https://www.canva.com/) to create the GoodGames Logo.

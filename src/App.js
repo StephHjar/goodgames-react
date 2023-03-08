@@ -45,11 +45,10 @@ function App() {
             exact
             path="/posts"
             render={() => (
-              // <GamesPage
-              //   message="No results found. Try adding a post!"
-              //   filter={`owner__profile=${profile_id}&`}
-              // />
-              <PostCreateForm />
+              <GamesPage
+                message="No results found. Try adding a post!"
+                filter={`owner__profile=${profile_id}&`}
+              />
             )}
           />
           <Route exact path="/posts/create" render={() => <PostCreateForm />} />
