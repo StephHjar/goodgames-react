@@ -96,6 +96,11 @@ const Post = (props) => {
         </Card.Text>
         <Card.Text></Card.Text>
         {content && <Card.Text>{content}</Card.Text>}
+        <Card.Text>
+          <Link to={`/games/${game}`} target="_blank">
+            Check out reviews for this game!
+          </Link>
+        </Card.Text>
         <div className={styles.PostBar}>
           {like_id ? (
             <span onClick={handleUnlike}>
