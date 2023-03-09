@@ -108,7 +108,7 @@ function PostCreateForm() {
           ))}
         </Form.Control>
       </Form.Group>
-      {errors?.game_title?.map((message, idx) => (
+      {errors?.game?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
