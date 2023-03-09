@@ -12,6 +12,7 @@ import btnStyles from "../../styles/Button.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Alert } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 function PostCreateForm() {
   const [errors, setErrors] = useState({});
@@ -91,6 +92,10 @@ function PostCreateForm() {
             </option>
           ))}
         </Form.Control>
+        <span>
+          Don't see your game in the list?{" "}
+          <Link to={"/games/create"}>Add it here!</Link>
+        </span>
       </Form.Group>
       {errors?.game?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
