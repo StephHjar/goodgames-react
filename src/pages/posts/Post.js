@@ -9,6 +9,7 @@ import { MoreDropdown } from "../../components/MoreDropdown";
 const Post = (props) => {
   const {
     id,
+    owner,
     comments_count,
     likes_count,
     like_id,
@@ -16,14 +17,13 @@ const Post = (props) => {
     game_title,
     game_image,
     content,
-    image,
     currently_playing,
     completed,
     setPosts,
   } = props;
 
   const currentUser = useCurrentUser();
-  const is_admin = currentUser?.username === "admin";
+  const is_owner = currentUser?.username === owner;
   const history = useHistory();
 
   const handleEdit = () => {
@@ -43,6 +43,7 @@ const Post = (props) => {
     try {
       const { data } = await axiosRes.post("/likes/", { post: id });
       setPosts((prevPosts) => ({
+        ...prevPosts,
         results: prevPosts.results.map((post) => {
           return post.id === id
             ? { ...post, likes_count: post.likes_count + 1, like_id: data.id }
@@ -74,7 +75,7 @@ const Post = (props) => {
       <Card.Body>
         <Media>
           <div className="ml-auto">
-            {is_admin && (
+            {is_owner && (
               <MoreDropdown
                 handleEdit={handleEdit}
                 handleDelete={handleDelete}
@@ -102,7 +103,14 @@ const Post = (props) => {
           </Link>
         </Card.Text>
         <div className={styles.PostBar}>
-          {like_id ? (
+          {is_owner ? (
+            <OverlayTrigger
+              placement="top"
+              overlay={<Tooltip>You can't like your own post!</Tooltip>}
+            >
+              <i className="far fa-heart" />
+            </OverlayTrigger>
+          ) : like_id ? (
             <span onClick={handleUnlike}>
               <i className={`fas fa-heart ${styles.Heart}`} />
             </span>
