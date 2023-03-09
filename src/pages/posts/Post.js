@@ -20,6 +20,7 @@ const Post = (props) => {
     currently_playing,
     completed,
     setPosts,
+    updated_at,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -92,8 +93,11 @@ const Post = (props) => {
           <Card.Title className="text-center">{game_title}</Card.Title>
         )}
         <Card.Text>
-          <span>Currently Playing? {currently_playing ? "Yes" : "No"}</span>
-          <span>Completed? {completed ? "Yes" : "No"}</span>
+          <p>
+            Currently Playing?{" "}
+            {currently_playing ? `Yes, as of ${updated_at}` : "No"}
+          </p>
+          <p>Completed? {completed ? `Yes, as of ${updated_at}` : "No"}</p>
         </Card.Text>
         <Card.Text></Card.Text>
         {content && <Card.Text>{content}</Card.Text>}
