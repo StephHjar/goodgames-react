@@ -12,6 +12,7 @@ import GamesPage from "./pages/games/GamesPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import GameEditForm from "./pages/games/GameEditForm";
 import PostPage from "./pages/posts/PostPage";
+import PostsPage from "./pages/posts/PostsPage";
 
 function App() {
   const currentUser = useCurrentUser();
@@ -48,7 +49,7 @@ function App() {
             exact
             path="/posts"
             render={() => (
-              <GamesPage
+              <PostsPage
                 message="No results found. Try adding a post!"
                 filter={`owner__profile=${profile_id}&`}
               />
