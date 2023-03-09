@@ -61,12 +61,21 @@ function PostCreateForm() {
       </Form.Group>
       <Form.Group>
         <Form.Label>Currently Playing?</Form.Label>
-        <Form.Control type="checkbox" name="currently-playing" />
-      </Form.Group>
-      <Form.Group>
+        <Form.Control
+          type="checkbox"
+          name="currently-playing"
+          className={styles.Checkbox}
+        />
         <Form.Label>Completed?</Form.Label>
-        <Form.Control type="checkbox" name="complete" />
+        <Form.Control
+          type="checkbox"
+          name="complete"
+          className={styles.Checkbox}
+        />
       </Form.Group>
+      {/* <Form.Group>
+
+      </Form.Group> */}
       <Form.Group>
         <Form.Label>Notes</Form.Label>
         <Form.Control as="textarea" rows={6} name="content" />
