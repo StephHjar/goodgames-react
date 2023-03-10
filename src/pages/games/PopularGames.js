@@ -16,7 +16,7 @@ const PopularGames = ({ mobile }) => {
     >
       {popularGames.results.length ? (
         <>
-          <p>Most liked games.</p>
+          <p className={appStyles.Heading}>Most liked games</p>
           {mobile ? (
             <div className="d-flex justify-content-around">
               {popularGames.results.slice(0, 3).map((game) => (

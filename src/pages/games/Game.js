@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import styles from "../../styles/Game.module.css";
+import appStyles from "../../App.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
@@ -84,7 +85,11 @@ const Game = (props) => {
         <Card.Img src={image} alt={title} className={styles.Image} />
       </Link>
       <Card.Body>
-        {title && <Card.Title className="text-center">{title}</Card.Title>}
+        {title && (
+          <Card.Title className={`text-center ${appStyles.Heading}`}>
+            {title}
+          </Card.Title>
+        )}
         {description && <Card.Text>{description}</Card.Text>}
         <div className={styles.PostBar}>
           {like_id ? (

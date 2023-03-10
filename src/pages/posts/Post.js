@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import styles from "../../styles/Post.module.css";
+import appStyles from "../../App.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
@@ -98,14 +99,16 @@ const Post = (props) => {
       </Link>
       <Card.Body>
         {game_title && (
-          <Card.Title className="text-center">{game_title}</Card.Title>
+          <Card.Title className={`${appStyles.Heading} text-center`}>
+            {game_title}
+          </Card.Title>
         )}
         <Card.Text>
           Currently Playing?
-          {currently_playing ? `Yes, as of ${updated_at}` : "No"}
+          <p>{currently_playing ? `Yes, as of ${updated_at}` : "No"}</p>
         </Card.Text>
         <Card.Text>
-          Completed? {completed ? `Yes, as of ${updated_at}` : "No"}
+          Completed? <p>{completed ? `Yes, as of ${updated_at}` : "No"}</p>
         </Card.Text>
         {content && <Card.Text>{content}</Card.Text>}
         <Card.Text>
