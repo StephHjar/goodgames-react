@@ -98,3 +98,4 @@ This section should describe the process you went through to deploy the project 
 - The sign up form photo is by by [Javier Martinez](https://unsplash.com/@cjdante?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/photos/hUD0PUczwJQ?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
 - I used [Color Picker](https://imagecolorpicker.com/en) to generated hex codes for colours from images.
 - The 'no results' icon is from [Flaticon](https://www.flaticon.com/free-icon/not-found_1178479).
+- The image on the main page is by [JESHOOTS.COM<](https://unsplash.com/@jeshoots?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/photos/eCktzGjC-iU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
