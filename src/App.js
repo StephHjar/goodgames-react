@@ -42,7 +42,7 @@ function App() {
             exact
             path="/feed"
             render={() => (
-              <GamesPage message="No results found. Try adding a post yourself!" />
+              <PostsPage message="No results found. Try adding a post yourself!" />
             )}
           />
           <Route
