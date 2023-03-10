@@ -11,7 +11,7 @@ import Post from "./Post";
 import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 
-import CommentCreateForm from "../reviews/ReviewCreateForm";
+import CommentCreateForm from "../comments/CommentCreateForm";
 import Comment from "../reviews/Review";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import InfiniteScroll from "react-infinite-scroll-component";
@@ -45,7 +45,7 @@ function PostPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <Post {...post.results[0]} setPosts={setPost} />
-        {/* <Container className={appStyles.Content}>
+        <Container className={appStyles.Content}>
           {currentUser ? (
             <CommentCreateForm
               profile_id={currentUser.profile_id}
@@ -57,7 +57,7 @@ function PostPage() {
           ) : comments.results.length ? (
             "Comments"
           ) : null}
-          {comments.results.length ? (
+          {/* {comments.results.length ? (
             <InfiniteScroll
               children={comments.results.map((review) => (
                 <Comment
@@ -73,11 +73,11 @@ function PostPage() {
               next={() => fetchMoreData(comments, setComments)}
             />
           ) : currentUser ? (
-            <span>No reviews yet, be the first to leave a review!</span>
+            <span>No comments yet, be the first to leave a comment!</span>
           ) : (
-            <span>No reviews yet!</span>
-          )}
-        </Container> */}
+            <span>No comments yet!</span>
+          )} */}
+        </Container>
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
         <p>Popular games for desktop</p>
