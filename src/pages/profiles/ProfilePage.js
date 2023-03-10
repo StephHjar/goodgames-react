@@ -79,10 +79,10 @@ function ProfilePage() {
             </Col>
           </Row>
         </Col>
-        <Row>
-          <Col>
-            {profile?.content && <Col className="p-3">{profile.content}</Col>}
-          </Col>
+        <Row className="justify-content-center no-gutters">
+          {profile?.content && (
+            <Col className="text-center">{profile.content}</Col>
+          )}
         </Row>
       </Row>
     </>
