@@ -52,7 +52,8 @@ function GamesPage({ message, filter = "" }) {
           activeClassName={styles.Active}
           to="/games/create"
         >
-          <i className="far fa-plus-square"></i>Add A Game
+          <i className="far fa-plus-square"></i>
+          <span className={appStyles.SubHeading}>Add A Game</span>
         </NavLink>
       </Col>
       <Col className="py-2 p-0 p-lg-2" lg={8}>

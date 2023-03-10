@@ -85,7 +85,7 @@ function PostCreateForm() {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label>Game</Form.Label>
+        <Form.Label className={appStyles.SubHeading}>Game</Form.Label>
         <Form.Control
           as="select"
           name="game"
@@ -101,7 +101,7 @@ function PostCreateForm() {
         </Form.Control>
         <span>
           Don't see your game in the list?{" "}
-          <Link to={"/games/create"}>Add it here!</Link>
+          <Link to={"/games/create"}>Add it by clicking here!</Link>
         </span>
       </Form.Group>
       {errors?.game?.map((message, idx) => (
@@ -111,7 +111,9 @@ function PostCreateForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Currently Playing?</Form.Label>
+        <Form.Label className={appStyles.SubHeading}>
+          Currently Playing?
+        </Form.Label>
         <Form.Control
           type="checkbox"
           name="currently_playing"
@@ -127,7 +129,7 @@ function PostCreateForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Completed?</Form.Label>
+        <Form.Label className={appStyles.SubHeading}>Completed?</Form.Label>
         <Form.Control
           type="checkbox"
           name="completed"
@@ -143,7 +145,7 @@ function PostCreateForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Notes</Form.Label>
+        <Form.Label className={appStyles.SubHeading}>Notes</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
@@ -174,7 +176,7 @@ function PostCreateForm() {
     <Form onSubmit={handleSubmit}>
       <Row>
         <Col>
-          Track A Game
+          <span className={appStyles.Heading}>Track A Game</span>
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>

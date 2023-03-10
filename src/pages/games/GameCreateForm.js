@@ -69,7 +69,7 @@ function GameCreateForm() {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label>Title</Form.Label>
+        <Form.Label className={appStyles.SubHeading}>Title</Form.Label>
         <Form.Control
           type="text"
           name="title"
@@ -84,7 +84,7 @@ function GameCreateForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Description</Form.Label>
+        <Form.Label className={appStyles.SubHeading}>Description</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}

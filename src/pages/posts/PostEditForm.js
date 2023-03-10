@@ -105,7 +105,7 @@ function PostEditForm() {
   const textFields = (
     <div className="text-center">
       <Form.Group>
-        <Form.Label>Game</Form.Label>
+        <Form.Label className={appStyles.SubHeading}>Game</Form.Label>
         <Form.Control
           as="select"
           name="game"
@@ -131,7 +131,9 @@ function PostEditForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Currently Playing?</Form.Label>
+        <Form.Label className={appStyles.SubHeading}>
+          Currently Playing?
+        </Form.Label>
         <Form.Control
           type="checkbox"
           name="currently_playing"
@@ -147,7 +149,7 @@ function PostEditForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Completed?</Form.Label>
+        <Form.Label className={appStyles.SubHeading}>Completed?</Form.Label>
         <Form.Control
           type="checkbox"
           name="completed"
@@ -163,7 +165,7 @@ function PostEditForm() {
       ))}
 
       <Form.Group>
-        <Form.Label>Notes</Form.Label>
+        <Form.Label className={appStyles.SubHeading}>Notes</Form.Label>
         <Form.Control
           as="textarea"
           rows={6}
@@ -193,7 +195,7 @@ function PostEditForm() {
     <Form onSubmit={handleSubmit}>
       <Row>
         <Col>
-          Edit A Tracked Game
+          <span className={appStyles.Heading}>Edit A Tracked Game</span>
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>

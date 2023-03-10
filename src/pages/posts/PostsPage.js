@@ -52,7 +52,8 @@ function PostsPage({ message, filter = "" }) {
           activeClassName={styles.Active}
           to="/posts/create"
         >
-          <i className="far fa-plus-square"></i>Track A Game
+          <i className="far fa-plus-square"></i>
+          <span className={appStyles.SubHeading}>Track A Game</span>
         </NavLink>
       </Col>
       <Col className="py-2 p-0 p-lg-2" lg={8}>
