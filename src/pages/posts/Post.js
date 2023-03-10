@@ -103,26 +103,18 @@ const Post = (props) => {
             {game_title}
           </Card.Title>
         )}
-        <Card.Text>
-          <>
-            <div className={appStyles.SubHeading}>Currently Playing?</div>
-            {currently_playing ? `Yes, as of ${updated_at}` : "No"}
-          </>
+        <Card.Text className={appStyles.SubHeading}>
+          Currently Playing?
         </Card.Text>
         <Card.Text>
-          <>
-            <div className={appStyles.SubHeading}>Completed?</div>
-            {completed ? `Yes, as of ${updated_at}` : "No"}
-          </>
+          {currently_playing ? `Yes, as of ${updated_at}` : "No"}
         </Card.Text>
+        <Card.Text className={appStyles.SubHeading}>Completed? </Card.Text>
+        <Card.Text>{completed ? `Yes, as of ${updated_at}` : "No"}</Card.Text>
         {content && (
-          <Card.Text>
-            <>
-              <div className={appStyles.SubHeading}>Notes</div>
-              {content}
-            </>
-          </Card.Text>
+          <Card.Text className={appStyles.SubHeading}>Notes</Card.Text>
         )}
+        <Card.Text>{content}</Card.Text>
         <Card.Text>
           <Link to={`/games/${game}`} target="_blank">
             Click here to see reviews for this game!
