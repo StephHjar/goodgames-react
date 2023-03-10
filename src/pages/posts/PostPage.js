@@ -12,7 +12,7 @@ import Asset from "../../components/Asset";
 import { fetchMoreData } from "../../utils/utils";
 
 import CommentCreateForm from "../comments/CommentCreateForm";
-import Comment from "../reviews/Review";
+import Comment from "../comments/Comment";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import InfiniteScroll from "react-infinite-scroll-component";
 
@@ -57,9 +57,9 @@ function PostPage() {
           ) : comments.results.length ? (
             "Comments"
           ) : null}
-          {/* {comments.results.length ? (
+          {comments.results.length ? (
             <InfiniteScroll
-              children={comments.results.map((review) => (
+              children={comments.results.map((comment) => (
                 <Comment
                   key={comment.id}
                   {...comment}
@@ -76,7 +76,7 @@ function PostPage() {
             <span>No comments yet, be the first to leave a comment!</span>
           ) : (
             <span>No comments yet!</span>
-          )} */}
+          )}
         </Container>
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">

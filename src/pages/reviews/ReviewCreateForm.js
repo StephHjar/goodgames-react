@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import Form from "react-bootstrap/Form";
 
+import appStyles from "../../App.module.css";
 import styles from "../../styles/ReviewCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -47,7 +48,7 @@ function ReviewCreateForm(props) {
 
   return (
     <>
-      <p className={styles.ReviewHeading}>Leave a review!</p>
+      <p className={appStyles.Heading}>Leave a review!</p>
       <Form className="mt-2 text-center" onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Label>Rating (1-5 stars)</Form.Label>

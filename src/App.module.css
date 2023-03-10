@@ -10,6 +10,14 @@
   padding-top: 135px;
 }
 
+.Heading {
+  font-family: "Tomorrow", sans-serif;
+  text-transform: uppercase;
+  color: #8f4cfc;
+  font-weight: bold;
+  text-align: center;
+}
+
 .Content {
   background-color: #ffffff;
   padding: 10px;

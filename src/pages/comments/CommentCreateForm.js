@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 
+import appStyles from "../../App.module.css";
 import styles from "../../styles/CommentCreateEditForm.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Avatar from "../../components/Avatar";
@@ -44,7 +45,7 @@ function CommentCreateForm(props) {
 
   return (
     <>
-      <p className={styles.CommentHeading}>Leave a comment!</p>
+      <p className={appStyles.Heading}>Leave a comment!</p>
       <Form className="mt-2" onSubmit={handleSubmit}>
         <Form.Group>
           <InputGroup>
