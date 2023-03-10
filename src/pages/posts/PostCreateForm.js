@@ -13,8 +13,10 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Alert } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { useRedirect } from "../../hooks/useRedirect";
 
 function PostCreateForm() {
+  useRedirect("loggedOut");
   const [errors, setErrors] = useState({});
   const [games, setGames] = useState({ results: [] });
 
