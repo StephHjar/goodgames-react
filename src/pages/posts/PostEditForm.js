@@ -9,12 +9,13 @@ import Container from "react-bootstrap/Container";
 import styles from "../../styles/PostCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import { axiosReq } from "../../api/axiosDefaults";
-import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { Alert } from "react-bootstrap";
+import { useHistory, useParams } from "react-router";
+
+import { axiosReq } from "../../api/axiosDefaults";
 import { Link } from "react-router-dom";
 
-function PostCreateForm() {
+function PostEditForm() {
   const [errors, setErrors] = useState({});
   const [games, setGames] = useState({ results: [] });
 
@@ -27,8 +28,26 @@ function PostCreateForm() {
   const { game, currently_playing, completed, content } = postData;
 
   const history = useHistory();
+  const { id } = useParams();
 
   useEffect(() => {
+    const handleMount = async () => {
+      try {
+        const { data } = await axiosReq.get(`/posts/${id}`);
+        const { game, currently_playing, completed, content, is_owner } = data;
+
+        is_owner
+          ? setPostData({
+              game,
+              currently_playing,
+              completed,
+              content,
+            })
+          : history.push("/");
+      } catch (err) {
+        console.log(err);
+      }
+    };
     const fetchGames = async (page = 1) => {
       try {
         const { data } = await axiosReq.get(`/games/?page=${page}`);
@@ -45,8 +64,9 @@ function PostCreateForm() {
         console.log(err);
       }
     };
+    handleMount();
     fetchGames();
-  }, []);
+  }, [history, id]);
 
   const handleChange = (event) => {
     setPostData({
@@ -72,8 +92,8 @@ function PostCreateForm() {
     formData.append("content", content);
 
     try {
-      const { data } = await axiosReq.post("/posts/", formData);
-      history.push(`/posts/${data.id}`);
+      await axiosReq.put(`/posts/${id}`, formData);
+      history.push(`/posts/${id}`);
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
@@ -89,7 +109,7 @@ function PostCreateForm() {
         <Form.Control
           as="select"
           name="game"
-          defaultValue="-- Select A Game --"
+          value={game}
           onChange={handleChange}
         >
           <option disabled={true}>-- Select A Game --</option>
@@ -169,12 +189,11 @@ function PostCreateForm() {
       </Button>
     </div>
   );
-
   return (
     <Form onSubmit={handleSubmit}>
       <Row>
         <Col>
-          Track A Game
+          Edit A Tracked Game
           <Container className={appStyles.Content}>{textFields}</Container>
         </Col>
       </Row>
@@ -182,4 +201,4 @@ function PostCreateForm() {
   );
 }
 
-export default PostCreateForm;
+export default PostEditForm;

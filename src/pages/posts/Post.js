@@ -100,13 +100,12 @@ const Post = (props) => {
           <Card.Title className="text-center">{game_title}</Card.Title>
         )}
         <Card.Text>
-          <p>
-            Currently Playing?{" "}
-            {currently_playing ? `Yes, as of ${updated_at}` : "No"}
-          </p>
-          <p>Completed? {completed ? `Yes, as of ${updated_at}` : "No"}</p>
+          Currently Playing?
+          {currently_playing ? `Yes, as of ${updated_at}` : "No"}
         </Card.Text>
-        <Card.Text></Card.Text>
+        <Card.Text>
+          Completed? {completed ? `Yes, as of ${updated_at}` : "No"}
+        </Card.Text>
         {content && <Card.Text>{content}</Card.Text>}
         <Card.Text>
           <Link to={`/games/${game}`} target="_blank">
