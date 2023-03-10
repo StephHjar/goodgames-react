@@ -59,9 +59,17 @@ function ProfilePage() {
         <Col lg={6}>
           <h3 className="m-2">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
-            <Col xs={3} className="my-2">
+            <Col xs={4} className="my-2">
               <div>{profile?.posts_count}</div>
-              <div>posts</div>
+              {profile?.posts_count === 1 ? <div>post</div> : <div>posts</div>}
+            </Col>
+            <Col xs={4} className="my-2">
+              <div>{profile?.reviews_count}</div>
+              {profile?.reviews_count === 1 ? (
+                <div>review</div>
+              ) : (
+                <div>reviews</div>
+              )}
             </Col>
           </Row>
         </Col>
