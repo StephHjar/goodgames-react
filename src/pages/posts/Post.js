@@ -105,20 +105,20 @@ const Post = (props) => {
         )}
         <Card.Text>
           <>
-            <p className={appStyles.SubHeading}>Currently Playing?</p>
+            <span className={appStyles.SubHeading}>Currently Playing?</span>
             {currently_playing ? `Yes, as of ${updated_at}` : "No"}
           </>
         </Card.Text>
         <Card.Text>
           <>
-            <p className={appStyles.SubHeading}>Completed?</p>
+            <span className={appStyles.SubHeading}>Completed?</span>
             {completed ? `Yes, as of ${updated_at}` : "No"}
           </>
         </Card.Text>
         {content && (
           <Card.Text>
             <>
-              <p className={appStyles.SubHeading}>Notes</p>
+              <span className={appStyles.SubHeading}>Notes</span>
               {content}
             </>
           </Card.Text>
