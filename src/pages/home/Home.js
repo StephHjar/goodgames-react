@@ -8,12 +8,14 @@ const Home = () => {
     <Row>
       <Col>
         <Container className={`${appStyles.Content} text-center`}>
-          <h2 className={appStyles.Heading}>Welcome to GoodGames!</h2>
-          <p>
-            Here you can track the video games you're currently playing, and
-            leave reviews for those you love (or hate!)
-          </p>
-          <p>Sign up or log in now to see others' games and reviews!</p>
+          <>
+            <h2 className={appStyles.Heading}>Welcome to GoodGames!</h2>
+            <p>
+              Here you can track the video games you're currently playing, and
+              leave reviews for those you love (or hate!)
+            </p>
+            <p>Sign up or log in now to see others' games and reviews!</p>
+          </>
         </Container>
       </Col>
       <Col>
