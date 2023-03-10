@@ -104,16 +104,23 @@ const Post = (props) => {
           </Card.Title>
         )}
         <Card.Text>
-          Currently Playing?
-          <p>{currently_playing ? `Yes, as of ${updated_at}` : "No"}</p>
+          <p className={appStyles.SubHeading}>Currently Playing?</p>
+          {currently_playing ? `Yes, as of ${updated_at}` : "No"}
         </Card.Text>
         <Card.Text>
-          Completed? <p>{completed ? `Yes, as of ${updated_at}` : "No"}</p>
+          <p className={appStyles.SubHeading}>Completed?</p>{" "}
+          {completed ? `Yes, as of ${updated_at}` : "No"}
         </Card.Text>
-        {content && <Card.Text>{content}</Card.Text>}
+        {content && (
+          <Card.Text>
+            {" "}
+            <p className={appStyles.SubHeading}>Notes</p>
+            {content}
+          </Card.Text>
+        )}
         <Card.Text>
           <Link to={`/games/${game}`} target="_blank">
-            Check out reviews for this game!
+            Click here to see reviews for this game!
           </Link>
         </Card.Text>
         <div className={styles.PostBar}>

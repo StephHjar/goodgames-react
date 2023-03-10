@@ -18,6 +18,17 @@
   text-align: center;
 }
 
+.SubHeading {
+  font-family: "Tomorrow", sans-serif;
+  text-transform: uppercase;
+  color: #8f4cfc;
+  font-weight: bold;
+  text-align: center;
+  font-size: 100%;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
 .Content {
   background-color: #ffffff;
   padding: 10px;
