@@ -15,6 +15,7 @@ import CommentCreateForm from "../comments/CommentCreateForm";
 import Comment from "../comments/Comment";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import InfiniteScroll from "react-infinite-scroll-component";
+import PopularGames from "../games/PopularGames";
 
 function PostPage() {
   const { id } = useParams();
@@ -44,6 +45,7 @@ function PostPage() {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
+        <PopularGames mobile />
         <Post {...post.results[0]} setPosts={setPost} />
         <Container className={appStyles.Content}>
           {currentUser ? (
@@ -80,7 +82,8 @@ function PostPage() {
         </Container>
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <p>Popular games for desktop</p>
+        {" "}
+        <PopularGames />
       </Col>
     </Row>
   );

@@ -15,6 +15,7 @@ import ReviewCreateForm from "../reviews/ReviewCreateForm";
 import Review from "../reviews/Review";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import InfiniteScroll from "react-infinite-scroll-component";
+import PopularGames from "../games/PopularGames";
 
 function GamePage() {
   const { id } = useParams();
@@ -44,6 +45,7 @@ function GamePage() {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
+        <PopularGames mobile />
         <Game {...game.results[0]} setGames={setGame} />
         <Container className={appStyles.Content}>
           {currentUser ? (
@@ -80,7 +82,7 @@ function GamePage() {
         </Container>
       </Col>
       <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-        <p>Popular games for desktop</p>
+        <PopularGames />
       </Col>
     </Row>
   );
