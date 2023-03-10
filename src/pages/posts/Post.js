@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -29,6 +29,7 @@ const Post = (props) => {
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner;
   const history = useHistory();
+  const { pathname } = useLocation();
 
   const handleEdit = () => {
     history.push(`/posts/${id}/edit`);
@@ -36,8 +37,8 @@ const Post = (props) => {
 
   const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/posts/${id}`);
-      history.goBack();
+      await axiosRes.delete(`/posts/${id}/`);
+      pathname === "/posts" ? history.go(0) : history.push("/posts");
     } catch (err) {
       console.log(err);
     }

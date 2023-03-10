@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import styles from "../../styles/Game.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -21,6 +21,7 @@ const Game = (props) => {
   const currentUser = useCurrentUser();
   const is_admin = currentUser?.username === "admin";
   const history = useHistory();
+  const { pathname } = useLocation();
 
   const handleEdit = () => {
     history.push(`/games/${id}/edit`);
@@ -28,8 +29,8 @@ const Game = (props) => {
 
   const handleDelete = async () => {
     try {
-      await axiosRes.delete(`/games/${id}`);
-      history.goBack();
+      await axiosRes.delete(`/games/${id}/`);
+      pathname === "/games" ? history.go(0) : history.push("/games");
     } catch (err) {
       console.log(err);
     }
