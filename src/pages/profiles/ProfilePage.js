@@ -36,7 +36,7 @@ function ProfilePage() {
         const [{ data: pageProfile }, { data: profilePosts }] =
           await Promise.all([
             axiosReq.get(`/profiles/${id}/`),
-            axiosReq.get(`/posts/?owner__profile=${id}/`),
+            axiosReq.get(`/posts/?owner__profile=${id}`),
           ]);
         setProfileData((prevState) => ({
           ...prevState,
@@ -79,7 +79,11 @@ function ProfilePage() {
             </Col>
           </Row>
         </Col>
-        {profile?.content && <Col className="p-3">{profile.content}</Col>}
+        <Row>
+          <Col>
+            {profile?.content && <Col className="p-3">{profile.content}</Col>}
+          </Col>
+        </Row>
       </Row>
     </>
   );
