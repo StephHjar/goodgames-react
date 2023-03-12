@@ -23,7 +23,7 @@ export const GameDataProvider = ({ children }) => {
           popularGames: data,
         }));
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

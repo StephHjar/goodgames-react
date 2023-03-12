@@ -62,7 +62,7 @@ function GameCreateForm() {
       const { data } = await axiosReq.post("/games/", formData);
       history.push(`/games/${data.id}`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }

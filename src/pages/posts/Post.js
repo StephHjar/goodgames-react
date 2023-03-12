@@ -44,7 +44,7 @@ const Post = (props) => {
       await axiosRes.delete(`/posts/${id}/`);
       pathname === "/posts" ? history.go(0) : history.push("/posts");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -60,7 +60,7 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -75,7 +75,7 @@ const Post = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

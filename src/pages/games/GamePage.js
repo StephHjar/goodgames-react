@@ -34,9 +34,8 @@ function GamePage() {
         ]);
         setGame({ results: [game] });
         setReviews(reviews);
-        console.log(game);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     handleMount();

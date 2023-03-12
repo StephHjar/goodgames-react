@@ -37,7 +37,7 @@ const Game = (props) => {
       await axiosRes.delete(`/games/${id}/`);
       pathname === "/games" ? history.go(0) : history.push("/games");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -52,7 +52,7 @@ const Game = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -67,7 +67,7 @@ const Game = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
