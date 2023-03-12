@@ -6,6 +6,7 @@
   - Posts
   - Profiles
   - Reviews
+  - Likes
 - All nav links are functional. Links either open in a new window (if there is no navigation on the target page), or new pages provide the option to go back.
 - Users must be logged in to add Posts & Games, and edit their own Commens, Posts, Profiles, and Reviews.
 - Only an admin / superuser has access to editing and deleting games.
