@@ -77,7 +77,14 @@ You will need to mention unfixed bugs and why they were not fixed. This section 
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub)
+In package.json file, in the “scripts” section, add the following prebuild command:
+
+"heroku-prebuild": "npm install -g serve",
+This will install a package needed to serve our single page application on heroku
+
+Add a Procfile at the root of the project with the following web command:
+
+web: serve -s build
 
 ## Credits
 
@@ -89,6 +96,7 @@ This section should describe the process you went through to deploy the project 
   - [This page](https://dev.to/hariseldon27/localecompare-and-sorting-in-javascript-1god) again on Dev.to to learn how to sort the game titles alphabetically.
   - I also borrowed code / syntax from GameDataContext provider.
 - I used [this thread](https://stackoverflow.com/questions/46820682/how-do-i-reload-a-page-with-react-router) and [this thread](https://stackoverflow.com/questions/65707107/react-routing-to-specific-page-not-working) on StackOverflow to have the handleDelete functions for Post and Game refresh the existing page if they are on the List page, rather than redirect the user back to the previous page. If they are on any page other than the List page, deleting a Post or Game will redirect them back to the List.
+- Deployment steps are adapted from Code Institute's Momments walkthrough.
 
 ### Media
 
