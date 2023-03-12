@@ -17,6 +17,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularGames from "./PopularGames";
 import { NavLink } from "react-router-dom";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function GamesPage({ message, filter = "" }) {
   const [games, setGames] = useState({ results: [] });
@@ -24,6 +25,8 @@ function GamesPage({ message, filter = "" }) {
   const { pathname } = useLocation();
 
   const [query, setQuery] = useState("");
+
+  const currentUser = useCurrentUser();
 
   useEffect(() => {
     const fetchGames = async () => {
@@ -42,7 +45,7 @@ function GamesPage({ message, filter = "" }) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
 
   return (
     <Row className="h-100">
