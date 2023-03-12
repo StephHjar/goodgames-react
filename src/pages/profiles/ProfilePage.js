@@ -63,7 +63,9 @@ function ProfilePage() {
           />
         </Col>
         <Col lg={6}>
-          <h3 className={`m-2 ${appStyles.Heading}`}>{profile?.owner}</h3>
+          <h3 className={`m-2 ${appStyles.Heading}`}>
+            {profile?.owner}'s profile
+          </h3>
           <Row className="justify-content-center no-gutters">
             <Col xs={4} className="my-2">
               <div>{profile?.posts_count}</div>
@@ -79,11 +81,14 @@ function ProfilePage() {
             </Col>
           </Row>
         </Col>
-        <Row className="justify-content-center no-gutters">
-          {profile?.content && (
-            <Col className="text-center">{profile.content}</Col>
-          )}
-        </Row>
+      </Row>
+      <Row className="justify-content-center no-gutters">
+        {profile?.content && (
+          <Col className="text-center">
+            <p className={appStyles.SubHeading}>Bio</p>
+            {profile.content}
+          </Col>
+        )}
       </Row>
     </>
   );
