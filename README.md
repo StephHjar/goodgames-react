@@ -2,18 +2,32 @@
 
 Welcome to the React Frontend for GoodGames!
 
-GoodGames is a website where you can share the video games you're currently playing, and leave a review for each game. You can like other users' posts, reviews, and games, and leave comments on other users' "Currently Playing" posts.
+![Screenshot showing responsiveness of home page](src/assets/readme/ami-responsive.png)
 
-This is the backend API database, built with Django REST Framework. The deployed version of the API is HERE, and the deployed version of the full site built in React is HERE.
+GoodGames is a website where you can share the video games you're currently playing, and leave a review for each game. You can leave comments on other users' posts. You can like other users' posts, comments, reviews, and games, and customise your own profile image and description.
 
-## Entity Relationship Diagram
+This is the frontend of the appliation, built with React.
 
-In the planning stage of this project, I created this Entity Relationship Diagram (ERD) to better visualize the relationships between models in the database.
-![ERD for GoodGames database](static/readme/PP5-ERD.png)
+- The deployed version of the full site built in React is [HERE](https://goodgames-react.herokuapp.com/).
+- The deployed version of the API is [HERE](https://goodgames-drf-api.herokuapp.com/).
+- The backend repository is [HERE](https://github.com/StephHjar/goodgames-drf-api).
+
+## Wireframes
+
+In the planning stage of this project, I created basic wireframes for desktop and mobile versions of the main pages of the site (posts and games, which would have the same layout):
+
+![Desktop wireframe]()
+
+![Mobile wireframe]()
 
 ## User Stories
 
-I have divided the functionality of the site and database into epics and user stories:
+I have divided the functionality of the site and database into epics and user stories below. These are also documented on my GitHub Project board found [here](https://github.com/users/StephHjar/projects/6/views/1).
+
+This is the view at the end of my project:
+![Final view of user stories](src/assets/readme/project-board.png)
+
+All user stories marked 'Must Have' have been completed, and some 'Should Have' user stories are still to be completed. The site functions without these, but they should be implemented in future sprints to create a better user experience.
 
 ### **Epic:** Account Management
 
@@ -62,18 +76,7 @@ I have divided the functionality of the site and database into epics and user st
 
 ## Testing
 
-### Manual Testing
-
-### Validator Testing
-
-- HTML
-  - No errors were returned when passing through the official [W3C validator](https://validator.w3.org/nu/?doc=https%3A%2F%2Fcode-institute-org.github.io%2Flove-running-2.0%2Findex.html)
-- CSS
-  - No errors were found when passing through the official [(Jigsaw) validator](https://jigsaw.w3.org/css-validator/validator?uri=https%3A%2F%2Fvalidator.w3.org%2Fnu%2F%3Fdoc%3Dhttps%253A%252F%252Fcode-institute-org.github.io%252Flove-running-2.0%252Findex.html&profile=css3svg&usermedium=all&warning=1&vextwarning=&lang=en#css)
-
-### Unfixed Bugs
-
-You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not a valid reason to leave bugs unfixed.
+Please see my [testing file](TESTING.md) for all manual and validator testing.
 
 ## Deployment
 
