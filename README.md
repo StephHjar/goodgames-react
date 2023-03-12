@@ -1,6 +1,6 @@
 # GoodGames
 
-Welcome to the DRF API for GoodGames!
+Welcome to the React Frontend for GoodGames!
 
 GoodGames is a website where you can share the video games you're currently playing, and leave a review for each game. You can like other users' posts, reviews, and games, and leave comments on other users' "Currently Playing" posts.
 

@@ -9,7 +9,7 @@ import splashImage from "../../assets/splash-image.webp";
 const Home = () => {
   return (
     <Row>
-      <Col>
+      <Col className="my-auto p-0 p-md-2" md={6}>
         <Container className={`${appStyles.Content} text-center`}>
           <>
             <h2 className={appStyles.Heading}>Welcome to GoodGames!</h2>
@@ -21,7 +21,7 @@ const Home = () => {
           </>
         </Container>
       </Col>
-      <Col>
+      <Col className="my-auto p-0 p-md-2" md={6}>
         <Image
           className={`${appStyles.FillerImage}`}
           src={splashImage}
