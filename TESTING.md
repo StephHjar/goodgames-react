@@ -1,5 +1,17 @@
 ### Manual Testing
 
+- Tested CRUD functionality for all resources:
+  - Comments
+  - Games
+  - Posts
+  - Profiles
+  - Reviews
+- All nav links are functional. Links either open in a new window (if there is no navigation on the target page), or new pages provide the option to go back.
+- Users must be logged in to add Posts & Games, and edit their own Commens, Posts, Profiles, and Reviews.
+- Only an admin / superuser has access to editing and deleting games.
+
+The site was tested for responsiveness on the following desktop and mobile devices: Macbook (Chrome and Safari), iPhone13 (Chrome and Safari).
+
 ### Validator Testing
 
 - HTML
@@ -13,6 +25,17 @@
 - JavaScript / React
   - When passing through ESHint in Gitpod, I received a number of errors around props not being validated, across all files with props (an example screenshot is below). I also received errors in my context files since React had not been imported. I resolved the React errors by importing React into these files. Based on some research, including [this article](https://forhjy.medium.com/react-solution-for-children-is-missing-in-props-validation-eslint-react-prop-types-2e11bc6043c7) I have decided to leave these errors unresolved for now, as the project is limited in scope and these do not affect its functionality.
     ![Screenshot of ESLint errors](src/assets/readme/ESHintValidator.png)
+
+### Lighthouse Testing
+
+![Screenshot of Lighthouse texting results](src/assets/readme/lighthouse.png)
+
+The site scores highly for accessibility in Lighthouse testing. Suggestions for improving performance were:
+
+- Reducing unused JavaScript (files included in the node_modules, which were provided by Code Institute).
+- Setting images to specific sizes (which I have not done to ensure the site is responsive).
+- Minifying JavaScript (outside the scope of this project).
+- Eliminating render-blocking resources (which were imports for Bootstrap, FontAwesome, and Google Fonts).
 
 ### Fixed Bugs
 
