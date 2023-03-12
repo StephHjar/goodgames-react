@@ -74,6 +74,32 @@ All user stories marked 'Must Have' have been completed, and some 'Should Have' 
 - As a **site admin** I can **remove posts or comments if they are not appropriate or relevant** so that **the site is enjoyable and accessible to all users**
 - As a **site admin** I can **see lists of all user profiles, posts, games, reviews, likes, and comments** so that **I have an overview of all activity on the site**
 
+## Features
+
+### Existing Features
+
+- **Navigation Bar**
+
+  - The navigation bar appears across all pages of the application, and the icons that appear depend on whether the user is logged in or out. Below is the view for a logged in user. A logged out user will only see 'Sign In' or 'Sign Up' options.
+    ![Navbar](src/assets/readme/navbar.png)
+
+- **Splash Page**
+
+  - The home page functions as a splash page, with a brief introduction to the site, and an image that ties into the theme (video games). Because the site's functionality requires a user to be logged in, it also includes a prompt to log in or create an account.
+    ![Splash page](src/assets/readme/splashpage.png)
+
+- **Post**
+
+  - A user creates a post in order to track a specific game. They can share whether they are currently playing it, or whether they have finished it. A time stamp is automatically added to reflect when the user last updated the status. Users can also add notes to their posts, and other users can interact with likes or by adding comments.
+    ![Post](src/assets/readme/post.png)
+
+- **Game**
+
+  - 
+
+- **Feed**
+  - The 'feed' section of the site shows all posts made by all users.
+
 ## Testing
 
 Please see my [testing file](TESTING.md) for all manual and validator testing.

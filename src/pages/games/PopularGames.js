@@ -18,17 +18,26 @@ const PopularGames = ({ mobile }) => {
         <>
           <p className={appStyles.Heading}>Most liked games</p>
           {mobile ? (
+            // refactored with help from Sean on Tutor Support
             <div className="d-flex justify-content-around">
-              {popularGames.results.slice(0, 3).map((game) => (
-                <Link className={appStyles.GameLink} to={`/games/${game.id}`}>
-                  <p key={game.id}>{game.title}</p>
+              {popularGames.results.slice(0, 3).map((game, index) => (
+                <Link
+                  key={`${game.id}-mobile-${index}`}
+                  className={appStyles.GameLink}
+                  to={`/games/${game.id}`}
+                >
+                  <p>{game.title}</p>
                 </Link>
               ))}
             </div>
           ) : (
-            popularGames.results.slice(0, 5).map((game) => (
-              <Link className={appStyles.GameLink} to={`/games/${game.id}`}>
-                <p key={game.id}>{game.title}</p>
+            popularGames.results.slice(0, 5).map((game, index) => (
+              <Link
+                key={`${game.id}-desktop-${index}`}
+                className={appStyles.GameLink}
+                to={`/games/${game.id}`}
+              >
+                <p>{game.title}</p>
               </Link>
             ))
           )}

@@ -44,10 +44,4 @@ See the [closed issues tab](https://github.com/StephHjar/goodgames-react/issues?
 
 ### Unfixed Bugs
 
-There is one unresolved terminal error, related to the PopularGames component:
-![Screenshot of console error](src/assets/readme/terminal-error.png)
-
-The reason the children don't have unique key props is because I am actually rendering two lists: one that is visible in the desktop view of the application, and the other which is visible in the mobile view:
-![Screenshot of popular games code](src/assets/readme/popular-games.png)
-
-I have assigned the `game.id` as the key value in each list, which means it is technically assigned twice: once in the mobile view, and once in the desktop view. Because both views never appear together at the same time on the page, and this does not affect the functionality of the component or the application, I've elected to leave this bug unresolved.
+None that I am aware of.

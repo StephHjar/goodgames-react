@@ -95,7 +95,7 @@ function PostEditForm() {
       await axiosReq.put(`/posts/${id}`, formData);
       history.push(`/posts/${id}`);
     } catch (err) {
-      // console.log(err);
+      console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data);
       }
@@ -113,8 +113,8 @@ function PostEditForm() {
           onChange={handleChange}
         >
           <option disabled={true}>-- Select A Game --</option>
-          {games.results.map((game) => (
-            <option value={game.id} key={game.id}>
+          {games.results.map((game, index) => (
+            <option value={game.id} key={`${game.id}-${index}`}>
               {game.title}
             </option>
           ))}
