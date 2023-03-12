@@ -1,5 +1,8 @@
 import React from "react";
-import { Col, Container, Row, Image } from "react-bootstrap";
+import Col from "react-bootstrap/Col";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Image from "react-bootstrap/Image";
 import appStyles from "../../App.module.css";
 import splashImage from "../../assets/splash-image.webp";
 

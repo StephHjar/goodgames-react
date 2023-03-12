@@ -5,6 +5,8 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+import Alert from "react-bootstrap/Alert";
+import Image from "react-bootstrap/Image";
 
 import Upload from "../../assets/game_upload.webp";
 
@@ -12,7 +14,6 @@ import styles from "../../styles/GameCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 import Asset from "../../components/Asset";
-import { Alert, Image } from "react-bootstrap";
 import { useHistory } from "react-router";
 
 import { axiosReq } from "../../api/axiosDefaults";

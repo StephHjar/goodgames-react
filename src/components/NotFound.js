@@ -3,7 +3,7 @@ import NoResults from "../assets/no-results.webp";
 import styles from "../styles/NotFound.module.css";
 import btnStyles from "../styles/Button.module.css";
 import Asset from "./Asset";
-import { Button } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
 import { useHistory } from "react-router-dom";
 
 const NotFound = () => {

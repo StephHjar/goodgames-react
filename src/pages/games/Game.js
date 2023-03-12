@@ -1,5 +1,9 @@
 import React from "react";
-import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
+import Media from "react-bootstrap/Media";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+
 import { Link, useHistory, useLocation } from "react-router-dom";
 import styles from "../../styles/Game.module.css";
 import appStyles from "../../App.module.css";
