@@ -110,3 +110,6 @@ web: serve -s build
 - I used [Color Picker](https://imagecolorpicker.com/en) to generated hex codes for colours from images.
 - The 'no results' icon is from [Flaticon](https://www.flaticon.com/free-icon/not-found_1178479).
 - The image on the main page is by [JESHOOTS.COM<](https://unsplash.com/@jeshoots?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/photos/eCktzGjC-iU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText).
+
+Thank you to my mentor, Martina, for the helpful tips and guidance.
+And special thank you to my fiancé Jonathan for supporting me through this course, being by my side through all the wobbles, and generally being the pest parter I could have asked for as I dedicated so much time to this project. ❤️
