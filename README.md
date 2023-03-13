@@ -176,14 +176,32 @@ Alternatively, if using Gitpod, you can click below to create your own workspace
 
 ### Heroku Deployment
 
-In package.json file, in the “scripts” section, add the following prebuild command:
+This project uses [Heroku](https://www.heroku.com), a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
 
-"heroku-prebuild": "npm install -g serve",
-This will install a package needed to serve our single page application on heroku
+- Select _New_ in the top-right corner of your Heroku Dashboard, and select _Create new app_ from the dropdown menu.
+- Enter a name for your app. The app name must be unique, so you need to adjust the name until you find a name that hasn't been used.
+- From the dropdown, choose the region closest to you (EU or USA), and finally, select _Create App_.
+- When the app is created, from the _Deploy_ tab, click on _Github_, enter the name of your GitHub repository, and click _Connect_.
+- Optionally, turn on automatic deployments, which will deploy to Heroku every time an update has been pushed to GitHub.
+- To deploy to Heroku the first time, click _Deploy_ near the bottom of the page.
+- _Note:_ unlike the backend application, there is no need to set any Config Vars for the frontend.
 
-Add a Procfile at the root of the project with the following web command:
+### Preparing the File for Deployment
 
-web: serve -s build
+Before your final deployment, complete the following steps:
+
+- In your `index.js` file, remove the `React.StrictMode` component (be sure to delete both opening and closing tags). This is not necessary outside of production.
+- In the `package.json file`, in the “scripts” section, add the following prebuild command:
+  `"heroku-prebuild": "npm install -g serve",`. This will install a package needed to serve our single page application on heroku
+- Create a file called `Procfile` at the root of the project, and in the file, paste in the following web command:
+  `web: serve -s build`.
+
+### Final Deployment
+
+- From Gitpod, run a final `git add .`, `git commit -m` with commit message, and `git push`.
+- If automatic deploys are enabled in Heroku, the app is now deployed!
+- If not, navigate to the _Deploy_ tab on Heroku. Scroll to the bottom of the page, and click _Deploy Branch_.
+- Your app is now deployed! 🥳
 
 ## Credits
 
