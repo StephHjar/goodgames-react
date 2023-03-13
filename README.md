@@ -207,12 +207,14 @@ Before your final deployment, complete the following steps:
 
 ### Content
 
+- Code throughout this project was adapted from Code Institute's Moments walkthrough.
 - In order to get all game titles from my DRF API database to populate in the "Add Post" form, I used the following resources:
   - [This YouTube video](https://www.youtube.com/watch?v=x48RYuXKs7c) from Haritha Computers and Technology (thank you to my mentor, Martina, for sharing this with me!)
   - [This page](https://dev.to/haalto/recursively-fetch-data-from-paginated-api-34ig) on Dev.to about pulling data from a paginated API.
   - [This page](https://dev.to/hariseldon27/localecompare-and-sorting-in-javascript-1god) again on Dev.to to learn how to sort the game titles alphabetically.
   - I also borrowed code / syntax from GameDataContext provider.
 - I used [this thread](https://stackoverflow.com/questions/46820682/how-do-i-reload-a-page-with-react-router) and [this thread](https://stackoverflow.com/questions/65707107/react-routing-to-specific-page-not-working) on StackOverflow to have the handleDelete functions for Post and Game refresh the existing page if they are on the List page, rather than redirect the user back to the previous page. If they are on any page other than the List page, deleting a Post or Game will redirect them back to the List.
+- I used [this thread](https://stackoverflow.com/questions/68776130/react-router-how-to-check-if-url-id-exists-in-functional-component) on StackOverflow to solve a bug where a blank game or post component was loading, instead of a 404 page, if a user entered an ID that did not exist. Using the `component` tag now renders the 404 page.
 - Deployment steps are adapted from Code Institute's Momments walkthrough.
 
 ### Media
