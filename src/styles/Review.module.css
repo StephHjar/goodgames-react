@@ -19,3 +19,15 @@
   font-size: 85%;
   margin-bottom: 4px;
 }
+
+.Heart {
+  color: #f85032;
+}
+
+.Heart:hover {
+  color: #8f4cfc;
+}
+
+.HeartOutline:hover {
+  color: #f85032;
+}
