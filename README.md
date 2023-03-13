@@ -16,9 +16,7 @@ This is the frontend of the appliation, built with React.
 
 In the planning stage of this project, I created basic wireframes for desktop and mobile versions of the main pages of the site (posts and games, which would have the same layout):
 
-![Desktop wireframe]()
-
-![Mobile wireframe]()
+[Desktop and mobile wireframes](src/assets/readme/GoodGamesWireframes.pdf)
 
 ## User Stories
 
@@ -88,23 +86,95 @@ All user stories marked 'Must Have' have been completed, and some 'Should Have' 
   - The home page functions as a splash page, with a brief introduction to the site, and an image that ties into the theme (video games). Because the site's functionality requires a user to be logged in, it also includes a prompt to log in or create an account.
     ![Splash page](src/assets/readme/splashpage.png)
 
+- **Game**
+
+  - A user can either track or leave a review for a game. Any user can add a game to the database if it does not already exist, but only an admin can edit or delete the game - this is due to the fact that editing or deleting a game will affect all users who have tracked that game themselves. I did not want to give any user the ability to edit another user's posts via the game component. The game component includes the game's title, a photo, and a desription of the game. Users can interact with the game by liking it or adding a review.
+    ![Game](src/assets/readme/game.png)
+
+- **Review**
+
+  - Users can leave a review for a game. There is a form beneath each game, prompting the user to choose a star rating and leave their comments. Reviews are displayed with the user's profile photo, a link to their profile, and a time stamp showing the date & time the review was left.
+    ![Review](src/assets/readme/review.png)
+
 - **Post**
 
   - A user creates a post in order to track a specific game. They can share whether they are currently playing it, or whether they have finished it. A time stamp is automatically added to reflect when the user last updated the status. Users can also add notes to their posts, and other users can interact with likes or by adding comments.
     ![Post](src/assets/readme/post.png)
 
-- **Game**
+- **Comment**
 
-  - 
+  - A user can leave a comment on a post. There is a form beneath each post with a free text box. Comments are displayed with the user's profile photo, a link to their profile, and a time stamp showing the date & time the comment was left.
+    ![Comment](src/assets/readme/comment.png)
+
+- **Add Game Form**
+
+  - If a game does not already exist in the site's database, a user can add it. They will be prompted to select a photo, and add the title and game's descriptions. These games will then be accessible by all users of the site, and will be able to be tracked and reviewed by any user.
+    ![Add game form](src/assets/readme/addgame.png)
+
+- **Track Game Form**
+
+  - When a user tracks a game, it creates a post on the main feed, and in their 'My Games' section. This form prompts the user to select a game from a dropdown menu, listing all the games in the database. If the game doesn't exist, the user is prompted to add it themselves via the Add Game form. If the game does exist, they can select whether they are currently playing the game or have completed it, and add any notes / thoughts in the free text field.
+    ![Track game form](src/assets/readme/addpost.png)
 
 - **Feed**
-  - The 'feed' section of the site shows all posts made by all users.
+
+  - The 'feed' section of the site shows all posts made by all users. The layout is the same across all three main pages of the application (feed, my games, and all games) to ensure visual and stylistic consistency, and ease of navigation. The feed is searchable by game title.
+    ![Feed](src/assets/readme/feed.png)
+
+- **My Games**
+
+  - The 'My Games' section of the site shows all the games that the logged in user has tracked. This will display all the user's own posts, including any notes, and whether they have completed or are currently playing the game. The posts are searchable by game title.
+    ![My games](src/assets/readme/mygames.png)
+
+- **All Games**
+
+  - The 'All Games' section of the site displays a list of all the games in the database. The list is searchable by game title via a search bar at the top of the page, and users also have the option to add a game if it's not there.
+    ![All games](src/assets/readme/allgames.png)
+
+- **Sign In Page**
+
+  - The sign in page allows an existing user to sign in to the site. There is a prompt redirecting the user to the sign up page if they don't already have an account. The layout for the sign in and sign up pages are both the same for visual / stylistic consistency.
+    ![Sign in page](src/assets/readme/signin.png)
+
+- **Sign Up Page**
+
+  - As above, the sign up page allows a user to create a new account. There is a prompt redirecting the user to the sign in page if they already have an account.
+    ![Sign up page](src/assets/readme/signup.png)
+
+- **Profile Page**
+  - The profile page allows a user to view their own or another user's profile. Users can edit their own profile by adding an image and/or a bio. The page also displays the number posts and reviews that a user has created, and shows a feed of their posts below this data.
+    ![Profile page](src/assets/readme/profile.png)
+
+### Features To Be Implemented
+
+Features that were outside the scope of this project, but that will be added in future sprints:
+
+- The ability to follow and unfollow users, to curate a custom feed.
+- The ability to follow and unfollow games, to notify you when a new review is added or a user starts tracking it.
+- The ability for a user to request an edit to game. Right now, only an admin can edit or delete a game, so that users cannot affect other users' posts, but if any changes need to be made there is no easy way to communicate this to the admin user.
 
 ## Testing
 
 Please see my [testing file](TESTING.md) for all manual and validator testing.
 
 ## Deployment
+
+### Local Deployment
+
+_Gitpod_ IDE was used to write the code for this project.
+
+To preview the project in the development environment, run the following command in the terminal:
+`npm start`. This will open port 3000. Click _Open Browser_ when the popup window appears to open the preview in a new window, or _Open Preview_ to open it within the IDE.
+
+To make a local copy of this repository, you can clone the project by typing the follow into your IDE terminal:
+
+- `git clone https://github.com/StephHjar/goodgames-react.git`
+
+Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/StephHjar/goodgames-react)
+
+### Heroku Deployment
 
 In package.json file, in the “scripts” section, add the following prebuild command:
 
